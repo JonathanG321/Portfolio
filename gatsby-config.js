@@ -1,3 +1,5 @@
+const path = require("path")
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -8,19 +10,46 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-netlify-cms`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-plugin-netlify-cms`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        enableIdentityWidget: true,
+        publicPath: `admin`,
+        includeRobots: false,
+        manualInit: true,
+        modulePath: `./src/cms/index.ts`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: path.join("gatsby-graphql", "index.ts"),
+        documentPaths: [
+          "./src/**/*.{ts,tsx}",
+          "./node_modules/gatsby-*/**/*.js",
+        ],
+        codegenDelay: 1000,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown-pages`,
-        path: `${__dirname}/src/markdown-pages`,
+        name: `images`,
+        path: path.join(__dirname, `src`, `images`),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: path.join(__dirname, `src`, `pageData`),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: path.join(__dirname, `src`, `pageData`),
       },
     },
     `gatsby-transformer-remark`,
