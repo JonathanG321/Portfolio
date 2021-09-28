@@ -7,6 +7,7 @@ window.CMS_MANUAL_INIT = true
 CMS.init({
   config: {
     load_config_file: false,
+    local_backend: true,
     backend: {
       name: "git-gateway",
       branch: "main",
