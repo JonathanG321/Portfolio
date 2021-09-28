@@ -74,7 +74,16 @@ module.exports = {
         slug: String
       }
 
-      type Home implements Node {
+      type Hero implements Node {
+        fields: Fields
+      }
+      type About implements Node {
+        fields: Fields
+      }
+      type Projects implements Node {
+        fields: Fields
+      }
+      type Contact implements Node {
         fields: Fields
       }
     `)

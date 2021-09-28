@@ -42,14 +42,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: path.join(__dirname, `src`, `pageData`),
+        path: path.join(__dirname, `src`, `sectionData`),
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `data`,
-        path: path.join(__dirname, `src`, `pageData`),
+        path: path.join(__dirname, `src`, `sectionData`),
       },
     },
     `gatsby-transformer-remark`,
