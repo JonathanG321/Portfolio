@@ -1,6 +1,6 @@
 import CMS from "netlify-cms-app"
-import pages from "./pages"
-// import posts from './collections/posts'
+import sections from "./sections"
+import projects from "./collections/projects"
 
 window.CMS_MANUAL_INIT = true
 
@@ -20,6 +20,6 @@ CMS.init({
     },
     media_folder: "/static/assets",
     public_folder: "/assets",
-    collections: [pages],
+    collections: [sections, projects],
   },
 })
