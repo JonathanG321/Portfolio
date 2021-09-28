@@ -10,9 +10,10 @@ const projects = {
   create: true,
   fields: [
     seo,
-    { name: "title", label: "Title" },
     heroImage,
-    { name: "body", label: "Body", widget: "markdown" },
+    { name: "title", label: "Title" },
+    { name: "body", label: "Body" },
+    { name: "tags", label: "Tags", widget: "list" },
   ],
 }
 

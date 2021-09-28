@@ -1,3 +1,4 @@
+import cta from "../partials/cta"
 import seo from "../partials/seo"
 
 const section = {
@@ -9,6 +10,7 @@ const section = {
     seo,
     { name: "title", label: "Title" },
     { name: "body", label: "Body", widget: "markdown" },
+    cta,
   ],
 }
 
