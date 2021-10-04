@@ -1,10 +1,9 @@
 {
-  "title": "no",
-  "body": "f d",
+  "title": "This",
+  "body": "Test",
   "seo": {
     "title": "cds",
-    "description": "dcsc",
-    "image": "/assets/essmyschool.jpg"
+    "description": "dcsc"
   },
   "languages": [
     "dcs"

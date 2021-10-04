@@ -1,4 +1,4 @@
-const hero = {
+const heroImage = {
   label: "Hero Image",
   name: "heroImage",
   widget: "object",
@@ -8,4 +8,4 @@ const hero = {
   ],
 }
 
-export default hero
+export default heroImage
