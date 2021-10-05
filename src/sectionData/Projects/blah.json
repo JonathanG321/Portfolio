@@ -1,20 +1,17 @@
 {
-  "title": "Test1",
+  "title": "blah",
+  "body": "whatup",
   "heroImage": {
     "data": "/assets/essmyschool.jpg",
     "label": "hero",
     "alt": "hero"
   },
   "seo": {
-    "title": "Test1",
+    "title": "cds",
     "image": {
       "data": "/assets/essmyschool.jpg",
       "alt": "test"
     },
-    "description": "Test1"
-  },
-  "CTA": {
-    "label": "Test1",
-    "url": "Test1"
+    "description": "dcsc"
   }
 }

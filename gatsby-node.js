@@ -35,11 +35,10 @@ module.exports = {
     const { createNodeField } = actions
     if (
       node.internal.type === `MarkdownRemark` ||
-      node.internal.type === `PagesJson` ||
+      node.internal.type === `SectionsJson` ||
       node.internal.type.includes(`Json`)
     ) {
       const value = createFilePath({ node, getNode })
-
       createNodeField({
         name: `slug`,
         node,
@@ -74,17 +73,39 @@ module.exports = {
         slug: String
       }
 
-      type Hero implements Node {
+      type ProjectsJson implements Node {
+        fields: Fields
+        image: File @fileByAbsolutePath(path: "src")
+      }
+      type ProjectsJsonHeroImage implements Node {
+        data: File @fileByAbsolutePath(path: "src")
+      }
+      type ProjectsJsonSeoImage implements Node {
+        data: File @fileByAbsolutePath(path: "src")
+      }
+
+      type HeroJson implements Node {
         fields: Fields
       }
-      type About implements Node {
+      type HeroJsonSeoImage implements Node {
+        data: File @fileByAbsolutePath(path: "src")
+      }
+      type HeroJsonHeroImage implements Node {
+        data: File @fileByAbsolutePath(path: "src")
+      }
+
+      type AboutJson implements Node {
         fields: Fields
       }
-      type Projects implements Node {
+      type AboutJsonSeoImage implements Node {
+        data: File @fileByAbsolutePath(path: "src")
+      }
+
+      type ContactJson implements Node {
         fields: Fields
       }
-      type Contact implements Node {
-        fields: Fields
+      type ContactJsonSeoImage implements Node {
+        data: File @fileByAbsolutePath(path: "src")
       }
     `)
   },
@@ -93,10 +114,7 @@ module.exports = {
       resolve: {
         alias: {
           "@components": path.resolve(__dirname, "src/components"),
-          "@utils": path.resolve(__dirname, "src/utils/index.ts"),
-          "@hooks": path.resolve(__dirname, "src/hooks"),
           "@assets": path.resolve(__dirname, "src/assets"),
-          "@data": path.resolve(__dirname, "src/data"),
         },
       },
     })
