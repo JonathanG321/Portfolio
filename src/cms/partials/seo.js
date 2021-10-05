@@ -1,3 +1,5 @@
+import image from "./image"
+
 const seo = {
   label: "SEO Settings",
   name: "seo",
@@ -6,7 +8,7 @@ const seo = {
   fields: [
     { label: "Title", name: "title", widget: "string" },
     { label: "Meta Description", name: "description", widget: "text" },
-    { label: "Image", name: "image", widget: "image" },
+    image
   ],
 }
 

@@ -1,7 +1,16 @@
 {
   "title": "Test1",
+  "heroImage": {
+    "data": "/assets/essmyschool.jpg",
+    "label": "hero",
+    "alt": "hero"
+  },
   "seo": {
     "title": "Test1",
+    "image": {
+      "data": "/assets/essmyschool.jpg",
+      "alt": "test"
+    },
     "description": "Test1"
   },
   "CTA": {

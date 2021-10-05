@@ -1,12 +1,11 @@
-const heroImage = {
-  label: "Hero Image",
-  name: "heroImage",
+const image = {
+  label: "Image",
+  name: "image",
   widget: "object",
   fields: [
-    { label: "Label", name: "label" },
     { label: "Alt", name: "alt" },
     { label: "Image", name: "data", widget: "image" },
   ],
 }
 
-export default heroImage
+export default image

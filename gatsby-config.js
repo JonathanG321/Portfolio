@@ -77,6 +77,17 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,
     {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: path.join("gatsby-graphql", "index.ts"),
+        documentPaths: [
+          "./src/**/*.{ts,tsx}",
+          "./node_modules/gatsby-*/**/*.js",
+        ],
+        codegenDelay: 500,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `assets`,
@@ -101,9 +112,8 @@ module.exports = {
       resolve: `gatsby-transformer-json`,
       options: {
         typeName: ({ node, object, isArray }) => {
-          console.log({ node, object, isArray })
           if(node.sourceInstanceName === "projects") {
-            return "projectsJson";
+            return "ProjectsJson";
           }
           return `${kebabCaseToPascalCase(node.name)}Json`
         },
@@ -119,17 +129,6 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/assets/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-plugin-graphql-codegen`,
-      options: {
-        fileName: path.join("gatsby-graphql", "index.ts"),
-        documentPaths: [
-          "./src/**/*.{ts,tsx}",
-          "./node_modules/gatsby-*/**/*.js",
-        ],
-        codegenDelay: 1000,
       },
     },
     {

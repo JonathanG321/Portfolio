@@ -33,7 +33,6 @@ const getFileNode = options => (source, _, context, info) => {
 module.exports = {
   onCreateNode({ node, actions, getNode }) {
     const { createNodeField } = actions
-    // console.log({node})
     if (
       node.internal.type === `MarkdownRemark` ||
       node.internal.type === `SectionsJson` ||
@@ -74,14 +73,39 @@ module.exports = {
         slug: String
       }
 
+      type ProjectsJson implements Node {
+        fields: Fields
+        image: File @fileByAbsolutePath(path: "src")
+      }
+      type ProjectsJsonHeroImage implements Node {
+        data: File @fileByAbsolutePath(path: "src")
+      }
+      type ProjectsJsonSeoImage implements Node {
+        data: File @fileByAbsolutePath(path: "src")
+      }
+
       type HeroJson implements Node {
         fields: Fields
       }
+      type HeroJsonSeoImage implements Node {
+        data: File @fileByAbsolutePath(path: "src")
+      }
+      type HeroJsonHeroImage implements Node {
+        data: File @fileByAbsolutePath(path: "src")
+      }
+
       type AboutJson implements Node {
         fields: Fields
       }
+      type AboutJsonSeoImage implements Node {
+        data: File @fileByAbsolutePath(path: "src")
+      }
+
       type ContactJson implements Node {
         fields: Fields
+      }
+      type ContactJsonSeoImage implements Node {
+        data: File @fileByAbsolutePath(path: "src")
       }
     `)
   },

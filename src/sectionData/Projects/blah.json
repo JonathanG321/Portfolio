@@ -1,4 +1,17 @@
 {
   "title": "blah",
-  "body": "whatup"
+  "body": "whatup",
+  "heroImage": {
+    "data": "/assets/essmyschool.jpg",
+    "label": "hero",
+    "alt": "hero"
+  },
+  "seo": {
+    "title": "cds",
+    "image": {
+      "data": "/assets/essmyschool.jpg",
+      "alt": "test"
+    },
+    "description": "dcsc"
+  }
 }

@@ -1,5 +1,5 @@
-// import seo from "../partials/seo"
-// import heroImage from "../partials/heroImage"
+import seo from "../partials/seo"
+import heroImage from "../partials/heroImage"
 
 const projects = {
   name: "projects",
@@ -14,6 +14,8 @@ const projects = {
   required: false,
   create: true,
   fields: [
+    seo,
+    heroImage,
     { name: "title", label: "Title" },
     { name: "body", label: "Body", widget: "markdown" },
   ],
