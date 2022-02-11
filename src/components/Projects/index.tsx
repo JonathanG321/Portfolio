@@ -21,7 +21,6 @@ type Filter =
   | "Netlify"
 
 const filterOptions: Filter[] = [
-  "",
   "Javascript",
   "Typescript",
   "CSS/SCSS",
@@ -48,17 +47,25 @@ function Projects({ nodes: projects }: Props) {
   )
   return (
     <div id="projects" className="flex justify-center h-full pt-20 text-white">
-      <div className="w-3/4 h-full flex items-center align-middle justify-center">
-        <select>
+      <div className="w-3/4 h-full flex flex-col items-center align-middle justify-center">
+        <select
+          className="text-black"
+          onChange={e => setFilter(e.target.value as Filter)}
+        >
+          <option value="">Filter By</option>
           {filterOptions.map(filterItem => (
             <option key={filterItem} value={filterItem}>
               {filterItem}
             </option>
           ))}
         </select>
-        {filteredProjects.map(project => (
-          <ProjectCard {...project} />
-        ))}
+        {filteredProjects.length && (
+          <div className="w-full border border-white rounded-lg p-10 grid grid-cols-3 gap-4">
+            {filteredProjects.map(project => (
+              <ProjectCard {...project} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )

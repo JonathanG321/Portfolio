@@ -2,7 +2,7 @@ import React from "react"
 import { PageProps } from "gatsby"
 import { Controller, Scene } from "react-scrollmagic"
 import { Timeline, Tween } from "react-gsap"
-import Animation from "../Animation"
+// import Animation from "../Animation"
 import { MainPageQuery } from "../../../gatsby-graphql"
 import Seo from "../seo"
 import About from "../About"
@@ -39,7 +39,6 @@ function Page({ data }: Props) {
           </Scene>
         </Controller>
       </div>
-      <About />
     </>
   )
 }

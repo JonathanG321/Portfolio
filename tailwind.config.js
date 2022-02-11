@@ -30,6 +30,9 @@ module.exports = {
         "4xs": "0.25rem",
       },
       spacing,
+      zIndex: {
+        "-z-1": -1
+      },
       width: {
         inherit: "inherit",
         "fit-content": "fit-content",
@@ -101,6 +104,7 @@ module.exports = {
         "1/11": "9.09%",
         "1/12": "8.33%",
         "1/13": "7.69%",
+        square: "100%"
       },
       lineHeight: {
         11: "2.75rem",
