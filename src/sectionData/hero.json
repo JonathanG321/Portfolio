@@ -1,7 +1,6 @@
 {
   "title": "Test1",
   "heroImage": {
-    "data": "/assets/essmyschool.jpg",
     "label": "hero",
     "alt": "hero"
   },

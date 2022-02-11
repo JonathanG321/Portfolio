@@ -5,7 +5,7 @@ const heroImage = {
   fields: [
     { label: "Label", name: "label" },
     { label: "Alt", name: "alt" },
-    { label: "Image", name: "data", widget: "image" },
+    { label: "Image", name: "data", widget: "image", required: false },
   ],
 }
 

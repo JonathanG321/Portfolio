@@ -1,11 +1,11 @@
 import * as React from "react"
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { ProjectsQuery } from "../../gatsby-graphql"
+import { ProjectQuery } from "../../gatsby-graphql"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-type Props = PageProps<ProjectsQuery>
+type Props = PageProps<ProjectQuery>
 
 function Page({ data }: Props) {
   const {
@@ -28,7 +28,7 @@ function Page({ data }: Props) {
 export default Page
 
 export const pageQuery = graphql`
-  query Projects($id: String!) {
+  query Project($id: String!) {
     json: projectsJson(id: { eq: $id }) {
       seo {
         description

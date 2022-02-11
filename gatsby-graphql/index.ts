@@ -316,14 +316,14 @@ export type SitePage = Node & {
   internalComponentName: Scalars['String'];
   componentChunkName: Scalars['String'];
   matchPath?: Maybe<Scalars['String']>;
-  isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
-  pluginCreator?: Maybe<SitePlugin>;
-  pluginCreatorId?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
+  isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
   context?: Maybe<SitePageContext>;
+  pluginCreator?: Maybe<SitePlugin>;
+  pluginCreatorId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContext = {
@@ -663,6 +663,8 @@ export type ProjectsJson = Node & {
   body?: Maybe<Scalars['String']>;
   heroImage?: Maybe<ProjectsJsonHeroImage>;
   seo?: Maybe<ProjectsJsonSeo>;
+  technologies?: Maybe<Array<Maybe<Scalars['String']>>>;
+  languages?: Maybe<Array<Maybe<Scalars['String']>>>;
   gatsbyPath?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
@@ -797,6 +799,7 @@ export type SitePlugin = Node & {
 };
 
 export type SitePluginPluginOptions = {
+  postCssPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPostCssPlugins>>>;
   defaults?: Maybe<SitePluginPluginOptionsDefaults>;
   base64Width?: Maybe<Scalars['Int']>;
   stripMetadata?: Maybe<Scalars['Boolean']>;
@@ -828,6 +831,405 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPlugins = {
+  purge?: Maybe<Array<Maybe<Scalars['String']>>>;
+  darkMode?: Maybe<Scalars['Boolean']>;
+  theme?: Maybe<SitePluginPluginOptionsPostCssPluginsTheme>;
+  variants?: Maybe<SitePluginPluginOptionsPostCssPluginsVariants>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsTheme = {
+  extend?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtend>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtend = {
+  flex?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendFlex>;
+  fontSize?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendFontSize>;
+  spacing?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendSpacing>;
+  width?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendWidth>;
+  maxWidth?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendMaxWidth>;
+  minWidth?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendMinWidth>;
+  inset?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendInset>;
+  height?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendHeight>;
+  minHeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendMinHeight>;
+  maxHeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendMaxHeight>;
+  padding?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendPadding>;
+  lineHeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendLineHeight>;
+  colors?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColors>;
+  transitionProperty?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendTransitionProperty>;
+  boxShadow?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendBoxShadow>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendFlex = {
+  _33_?: Maybe<Scalars['String']>;
+  _50_?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendFontSize = {
+  _2xs?: Maybe<Scalars['String']>;
+  _3xs?: Maybe<Scalars['String']>;
+  _4xs?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendSpacing = {
+  _15?: Maybe<Scalars['String']>;
+  _18?: Maybe<Scalars['String']>;
+  _55?: Maybe<Scalars['String']>;
+  _65?: Maybe<Scalars['String']>;
+  _84?: Maybe<Scalars['String']>;
+  _100?: Maybe<Scalars['String']>;
+  _120?: Maybe<Scalars['String']>;
+  _140?: Maybe<Scalars['String']>;
+  _160?: Maybe<Scalars['String']>;
+  _26_67?: Maybe<Scalars['String']>;
+  _33_33?: Maybe<Scalars['String']>;
+  _78_5?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendWidth = {
+  inherit?: Maybe<Scalars['String']>;
+  fit_content?: Maybe<Scalars['String']>;
+  _1_10?: Maybe<Scalars['String']>;
+  _2_10?: Maybe<Scalars['String']>;
+  _3_10?: Maybe<Scalars['String']>;
+  _4_10?: Maybe<Scalars['String']>;
+  _5_10?: Maybe<Scalars['String']>;
+  _6_10?: Maybe<Scalars['String']>;
+  _7_10?: Maybe<Scalars['String']>;
+  _8_10?: Maybe<Scalars['String']>;
+  _9_10?: Maybe<Scalars['String']>;
+  _48_?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendMaxWidth = {
+  _0?: Maybe<Scalars['String']>;
+  _1?: Maybe<Scalars['String']>;
+  _2?: Maybe<Scalars['String']>;
+  _3?: Maybe<Scalars['String']>;
+  _4?: Maybe<Scalars['String']>;
+  _5?: Maybe<Scalars['String']>;
+  _6?: Maybe<Scalars['String']>;
+  _7?: Maybe<Scalars['String']>;
+  _8?: Maybe<Scalars['String']>;
+  _9?: Maybe<Scalars['String']>;
+  _10?: Maybe<Scalars['String']>;
+  _11?: Maybe<Scalars['String']>;
+  _12?: Maybe<Scalars['String']>;
+  _14?: Maybe<Scalars['String']>;
+  _15?: Maybe<Scalars['String']>;
+  _16?: Maybe<Scalars['String']>;
+  _18?: Maybe<Scalars['String']>;
+  _20?: Maybe<Scalars['String']>;
+  _24?: Maybe<Scalars['String']>;
+  _28?: Maybe<Scalars['String']>;
+  _32?: Maybe<Scalars['String']>;
+  _36?: Maybe<Scalars['String']>;
+  _40?: Maybe<Scalars['String']>;
+  _44?: Maybe<Scalars['String']>;
+  _48?: Maybe<Scalars['String']>;
+  _52?: Maybe<Scalars['String']>;
+  _55?: Maybe<Scalars['String']>;
+  _56?: Maybe<Scalars['String']>;
+  _60?: Maybe<Scalars['String']>;
+  _64?: Maybe<Scalars['String']>;
+  _65?: Maybe<Scalars['String']>;
+  _72?: Maybe<Scalars['String']>;
+  _80?: Maybe<Scalars['String']>;
+  _84?: Maybe<Scalars['String']>;
+  _96?: Maybe<Scalars['String']>;
+  _100?: Maybe<Scalars['String']>;
+  _120?: Maybe<Scalars['String']>;
+  _140?: Maybe<Scalars['String']>;
+  _160?: Maybe<Scalars['String']>;
+  auto?: Maybe<Scalars['String']>;
+  px?: Maybe<Scalars['String']>;
+  _0_5?: Maybe<Scalars['String']>;
+  _1_5?: Maybe<Scalars['String']>;
+  _2_5?: Maybe<Scalars['String']>;
+  _3_5?: Maybe<Scalars['String']>;
+  _1_2?: Maybe<Scalars['String']>;
+  _1_3?: Maybe<Scalars['String']>;
+  _2_3?: Maybe<Scalars['String']>;
+  _1_4?: Maybe<Scalars['String']>;
+  _2_4?: Maybe<Scalars['String']>;
+  _3_4?: Maybe<Scalars['String']>;
+  _4_5?: Maybe<Scalars['String']>;
+  _1_6?: Maybe<Scalars['String']>;
+  _2_6?: Maybe<Scalars['String']>;
+  _3_6?: Maybe<Scalars['String']>;
+  _4_6?: Maybe<Scalars['String']>;
+  _5_6?: Maybe<Scalars['String']>;
+  _1_12?: Maybe<Scalars['String']>;
+  _2_12?: Maybe<Scalars['String']>;
+  _3_12?: Maybe<Scalars['String']>;
+  _4_12?: Maybe<Scalars['String']>;
+  _5_12?: Maybe<Scalars['String']>;
+  _6_12?: Maybe<Scalars['String']>;
+  _7_12?: Maybe<Scalars['String']>;
+  _8_12?: Maybe<Scalars['String']>;
+  _9_12?: Maybe<Scalars['String']>;
+  _10_12?: Maybe<Scalars['String']>;
+  _11_12?: Maybe<Scalars['String']>;
+  full?: Maybe<Scalars['String']>;
+  screen?: Maybe<Scalars['String']>;
+  min?: Maybe<Scalars['String']>;
+  max?: Maybe<Scalars['String']>;
+  _26_67?: Maybe<Scalars['String']>;
+  _33_33?: Maybe<Scalars['String']>;
+  _78_5?: Maybe<Scalars['String']>;
+  logo?: Maybe<Scalars['String']>;
+  _1_7?: Maybe<Scalars['String']>;
+  _1_8?: Maybe<Scalars['String']>;
+  _1_10?: Maybe<Scalars['String']>;
+  _2_10?: Maybe<Scalars['String']>;
+  _3_10?: Maybe<Scalars['String']>;
+  _4_10?: Maybe<Scalars['String']>;
+  _5_10?: Maybe<Scalars['String']>;
+  _6_10?: Maybe<Scalars['String']>;
+  _7_10?: Maybe<Scalars['String']>;
+  _8_10?: Maybe<Scalars['String']>;
+  _9_10?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendMinWidth = {
+  _0?: Maybe<Scalars['String']>;
+  _1?: Maybe<Scalars['String']>;
+  _2?: Maybe<Scalars['String']>;
+  _3?: Maybe<Scalars['String']>;
+  _4?: Maybe<Scalars['String']>;
+  _5?: Maybe<Scalars['String']>;
+  _6?: Maybe<Scalars['String']>;
+  _7?: Maybe<Scalars['String']>;
+  _8?: Maybe<Scalars['String']>;
+  _9?: Maybe<Scalars['String']>;
+  _10?: Maybe<Scalars['String']>;
+  _11?: Maybe<Scalars['String']>;
+  _12?: Maybe<Scalars['String']>;
+  _14?: Maybe<Scalars['String']>;
+  _15?: Maybe<Scalars['String']>;
+  _16?: Maybe<Scalars['String']>;
+  _18?: Maybe<Scalars['String']>;
+  _20?: Maybe<Scalars['String']>;
+  _24?: Maybe<Scalars['String']>;
+  _28?: Maybe<Scalars['String']>;
+  _32?: Maybe<Scalars['String']>;
+  _36?: Maybe<Scalars['String']>;
+  _40?: Maybe<Scalars['String']>;
+  _44?: Maybe<Scalars['String']>;
+  _48?: Maybe<Scalars['String']>;
+  _52?: Maybe<Scalars['String']>;
+  _55?: Maybe<Scalars['String']>;
+  _56?: Maybe<Scalars['String']>;
+  _60?: Maybe<Scalars['String']>;
+  _64?: Maybe<Scalars['String']>;
+  _65?: Maybe<Scalars['String']>;
+  _72?: Maybe<Scalars['String']>;
+  _80?: Maybe<Scalars['String']>;
+  _84?: Maybe<Scalars['String']>;
+  _96?: Maybe<Scalars['String']>;
+  _100?: Maybe<Scalars['String']>;
+  _120?: Maybe<Scalars['String']>;
+  _140?: Maybe<Scalars['String']>;
+  _160?: Maybe<Scalars['String']>;
+  auto?: Maybe<Scalars['String']>;
+  px?: Maybe<Scalars['String']>;
+  _0_5?: Maybe<Scalars['String']>;
+  _1_5?: Maybe<Scalars['String']>;
+  _2_5?: Maybe<Scalars['String']>;
+  _3_5?: Maybe<Scalars['String']>;
+  _1_2?: Maybe<Scalars['String']>;
+  _1_3?: Maybe<Scalars['String']>;
+  _2_3?: Maybe<Scalars['String']>;
+  _1_4?: Maybe<Scalars['String']>;
+  _2_4?: Maybe<Scalars['String']>;
+  _3_4?: Maybe<Scalars['String']>;
+  _4_5?: Maybe<Scalars['String']>;
+  _1_6?: Maybe<Scalars['String']>;
+  _2_6?: Maybe<Scalars['String']>;
+  _3_6?: Maybe<Scalars['String']>;
+  _4_6?: Maybe<Scalars['String']>;
+  _5_6?: Maybe<Scalars['String']>;
+  _1_12?: Maybe<Scalars['String']>;
+  _2_12?: Maybe<Scalars['String']>;
+  _3_12?: Maybe<Scalars['String']>;
+  _4_12?: Maybe<Scalars['String']>;
+  _5_12?: Maybe<Scalars['String']>;
+  _6_12?: Maybe<Scalars['String']>;
+  _7_12?: Maybe<Scalars['String']>;
+  _8_12?: Maybe<Scalars['String']>;
+  _9_12?: Maybe<Scalars['String']>;
+  _10_12?: Maybe<Scalars['String']>;
+  _11_12?: Maybe<Scalars['String']>;
+  full?: Maybe<Scalars['String']>;
+  screen?: Maybe<Scalars['String']>;
+  min?: Maybe<Scalars['String']>;
+  max?: Maybe<Scalars['String']>;
+  _26_67?: Maybe<Scalars['String']>;
+  _33_33?: Maybe<Scalars['String']>;
+  _78_5?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendInset = {
+  mobile_nav_height?: Maybe<Scalars['String']>;
+  _1_5?: Maybe<Scalars['String']>;
+  _1_6?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendHeight = {
+  desktop_nav?: Maybe<Scalars['String']>;
+  mobile_nav?: Maybe<Scalars['String']>;
+  mobile_nav_container?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendMinHeight = {
+  _0?: Maybe<Scalars['String']>;
+  _1?: Maybe<Scalars['String']>;
+  _2?: Maybe<Scalars['String']>;
+  _3?: Maybe<Scalars['String']>;
+  _4?: Maybe<Scalars['String']>;
+  _5?: Maybe<Scalars['String']>;
+  _6?: Maybe<Scalars['String']>;
+  _7?: Maybe<Scalars['String']>;
+  _8?: Maybe<Scalars['String']>;
+  _9?: Maybe<Scalars['String']>;
+  _10?: Maybe<Scalars['String']>;
+  _11?: Maybe<Scalars['String']>;
+  _12?: Maybe<Scalars['String']>;
+  _14?: Maybe<Scalars['String']>;
+  _16?: Maybe<Scalars['String']>;
+  _20?: Maybe<Scalars['String']>;
+  _24?: Maybe<Scalars['String']>;
+  _28?: Maybe<Scalars['String']>;
+  _32?: Maybe<Scalars['String']>;
+  _36?: Maybe<Scalars['String']>;
+  _40?: Maybe<Scalars['String']>;
+  _44?: Maybe<Scalars['String']>;
+  _48?: Maybe<Scalars['String']>;
+  _52?: Maybe<Scalars['String']>;
+  _56?: Maybe<Scalars['String']>;
+  _60?: Maybe<Scalars['String']>;
+  _64?: Maybe<Scalars['String']>;
+  _72?: Maybe<Scalars['String']>;
+  _80?: Maybe<Scalars['String']>;
+  _96?: Maybe<Scalars['String']>;
+  auto?: Maybe<Scalars['String']>;
+  px?: Maybe<Scalars['String']>;
+  _0_5?: Maybe<Scalars['String']>;
+  _1_5?: Maybe<Scalars['String']>;
+  _2_5?: Maybe<Scalars['String']>;
+  _3_5?: Maybe<Scalars['String']>;
+  _1_2?: Maybe<Scalars['String']>;
+  _1_3?: Maybe<Scalars['String']>;
+  _2_3?: Maybe<Scalars['String']>;
+  _1_4?: Maybe<Scalars['String']>;
+  _2_4?: Maybe<Scalars['String']>;
+  _3_4?: Maybe<Scalars['String']>;
+  _4_5?: Maybe<Scalars['String']>;
+  _1_6?: Maybe<Scalars['String']>;
+  _2_6?: Maybe<Scalars['String']>;
+  _3_6?: Maybe<Scalars['String']>;
+  _4_6?: Maybe<Scalars['String']>;
+  _5_6?: Maybe<Scalars['String']>;
+  full?: Maybe<Scalars['String']>;
+  screen?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendMaxHeight = {
+  home_hero_carousel?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendPadding = {
+  _15?: Maybe<Scalars['String']>;
+  _2_67?: Maybe<Scalars['String']>;
+  _1_2?: Maybe<Scalars['String']>;
+  _1_3?: Maybe<Scalars['String']>;
+  _1_4?: Maybe<Scalars['String']>;
+  _1_5?: Maybe<Scalars['String']>;
+  _1_6?: Maybe<Scalars['String']>;
+  _1_7?: Maybe<Scalars['String']>;
+  _1_8?: Maybe<Scalars['String']>;
+  _1_9?: Maybe<Scalars['String']>;
+  _1_10?: Maybe<Scalars['String']>;
+  _1_11?: Maybe<Scalars['String']>;
+  _1_12?: Maybe<Scalars['String']>;
+  _1_13?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendLineHeight = {
+  _11?: Maybe<Scalars['String']>;
+  extra_tight?: Maybe<Scalars['Float']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColors = {
+  citrine?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrine>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrine = {
+  background?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineBackground>;
+  primary?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrinePrimary>;
+  gray?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineGray>;
+  black?: Maybe<Scalars['String']>;
+  accent?: Maybe<Scalars['String']>;
+  off_white?: Maybe<Scalars['String']>;
+  blue?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineBlue>;
+  turquoise?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineTurquoise>;
+  orange?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineOrange>;
+  purple?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrinePurple>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineBackground = {
+  overflow?: Maybe<Scalars['String']>;
+  hero?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrinePrimary = {
+  light?: Maybe<Scalars['String']>;
+  medium?: Maybe<Scalars['String']>;
+  dark?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineGray = {
+  light?: Maybe<Scalars['String']>;
+  medium?: Maybe<Scalars['String']>;
+  dark?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineBlue = {
+  light?: Maybe<Scalars['String']>;
+  dark?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineTurquoise = {
+  light?: Maybe<Scalars['String']>;
+  dark?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineOrange = {
+  light?: Maybe<Scalars['String']>;
+  dark?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrinePurple = {
+  light?: Maybe<Scalars['String']>;
+  dark?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendTransitionProperty = {
+  left?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendBoxShadow = {
+  body?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsVariants = {
+  extend?: Maybe<SitePluginPluginOptionsPostCssPluginsVariantsExtend>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsVariantsExtend = {
+  padding?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPluginOptionsDefaults = {
@@ -1081,14 +1483,14 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
-  pluginCreator?: Maybe<SitePluginFilterInput>;
-  pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+  isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
+  pluginCreator?: Maybe<SitePluginFilterInput>;
+  pluginCreatorId?: Maybe<StringQueryOperatorInput>;
 };
 
 
@@ -1152,6 +1554,8 @@ export type QueryProjectsJsonArgs = {
   body?: Maybe<StringQueryOperatorInput>;
   heroImage?: Maybe<ProjectsJsonHeroImageFilterInput>;
   seo?: Maybe<ProjectsJsonSeoFilterInput>;
+  technologies?: Maybe<StringQueryOperatorInput>;
+  languages?: Maybe<StringQueryOperatorInput>;
   gatsbyPath?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -1528,6 +1932,8 @@ export type ProjectsJsonFilterInput = {
   body?: Maybe<StringQueryOperatorInput>;
   heroImage?: Maybe<ProjectsJsonHeroImageFilterInput>;
   seo?: Maybe<ProjectsJsonSeoFilterInput>;
+  technologies?: Maybe<StringQueryOperatorInput>;
+  languages?: Maybe<StringQueryOperatorInput>;
   gatsbyPath?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -1968,11 +2374,15 @@ export type FileFieldsEnum =
   | 'childrenProjectsJson___image___childrenProjectsJson'
   | 'childrenProjectsJson___image___childrenProjectsJson___title'
   | 'childrenProjectsJson___image___childrenProjectsJson___body'
+  | 'childrenProjectsJson___image___childrenProjectsJson___technologies'
+  | 'childrenProjectsJson___image___childrenProjectsJson___languages'
   | 'childrenProjectsJson___image___childrenProjectsJson___gatsbyPath'
   | 'childrenProjectsJson___image___childrenProjectsJson___id'
   | 'childrenProjectsJson___image___childrenProjectsJson___children'
   | 'childrenProjectsJson___image___childProjectsJson___title'
   | 'childrenProjectsJson___image___childProjectsJson___body'
+  | 'childrenProjectsJson___image___childProjectsJson___technologies'
+  | 'childrenProjectsJson___image___childProjectsJson___languages'
   | 'childrenProjectsJson___image___childProjectsJson___gatsbyPath'
   | 'childrenProjectsJson___image___childProjectsJson___id'
   | 'childrenProjectsJson___image___childProjectsJson___children'
@@ -2083,6 +2493,8 @@ export type FileFieldsEnum =
   | 'childrenProjectsJson___seo___image___id'
   | 'childrenProjectsJson___seo___image___children'
   | 'childrenProjectsJson___seo___description'
+  | 'childrenProjectsJson___technologies'
+  | 'childrenProjectsJson___languages'
   | 'childrenProjectsJson___gatsbyPath'
   | 'childrenProjectsJson___id'
   | 'childrenProjectsJson___parent___id'
@@ -2167,11 +2579,15 @@ export type FileFieldsEnum =
   | 'childProjectsJson___image___childrenProjectsJson'
   | 'childProjectsJson___image___childrenProjectsJson___title'
   | 'childProjectsJson___image___childrenProjectsJson___body'
+  | 'childProjectsJson___image___childrenProjectsJson___technologies'
+  | 'childProjectsJson___image___childrenProjectsJson___languages'
   | 'childProjectsJson___image___childrenProjectsJson___gatsbyPath'
   | 'childProjectsJson___image___childrenProjectsJson___id'
   | 'childProjectsJson___image___childrenProjectsJson___children'
   | 'childProjectsJson___image___childProjectsJson___title'
   | 'childProjectsJson___image___childProjectsJson___body'
+  | 'childProjectsJson___image___childProjectsJson___technologies'
+  | 'childProjectsJson___image___childProjectsJson___languages'
   | 'childProjectsJson___image___childProjectsJson___gatsbyPath'
   | 'childProjectsJson___image___childProjectsJson___id'
   | 'childProjectsJson___image___childProjectsJson___children'
@@ -2282,6 +2698,8 @@ export type FileFieldsEnum =
   | 'childProjectsJson___seo___image___id'
   | 'childProjectsJson___seo___image___children'
   | 'childProjectsJson___seo___description'
+  | 'childProjectsJson___technologies'
+  | 'childProjectsJson___languages'
   | 'childProjectsJson___gatsbyPath'
   | 'childProjectsJson___id'
   | 'childProjectsJson___parent___id'
@@ -3369,6 +3787,16 @@ export type SiteFunctionSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
+export type SitePageContextFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  _xparams?: Maybe<SitePageContext_XparamsFilterInput>;
+};
+
+export type SitePageContext_XparamsFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>;
+};
+
 export type SitePluginFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -3386,6 +3814,7 @@ export type SitePluginFilterInput = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
+  postCssPlugins?: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>;
   defaults?: Maybe<SitePluginPluginOptionsDefaultsFilterInput>;
   base64Width?: Maybe<IntQueryOperatorInput>;
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
@@ -3417,6 +3846,409 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsPostCssPluginsFilterInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsFilterInput = {
+  purge?: Maybe<StringQueryOperatorInput>;
+  darkMode?: Maybe<BooleanQueryOperatorInput>;
+  theme?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFilterInput>;
+  variants?: Maybe<SitePluginPluginOptionsPostCssPluginsVariantsFilterInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFilterInput = {
+  extend?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendFilterInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendFilterInput = {
+  flex?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendFlexFilterInput>;
+  fontSize?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendFontSizeFilterInput>;
+  spacing?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendSpacingFilterInput>;
+  width?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendWidthFilterInput>;
+  maxWidth?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendMaxWidthFilterInput>;
+  minWidth?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendMinWidthFilterInput>;
+  inset?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendInsetFilterInput>;
+  height?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendHeightFilterInput>;
+  minHeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendMinHeightFilterInput>;
+  maxHeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendMaxHeightFilterInput>;
+  padding?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendPaddingFilterInput>;
+  lineHeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendLineHeightFilterInput>;
+  colors?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsFilterInput>;
+  transitionProperty?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendTransitionPropertyFilterInput>;
+  boxShadow?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendBoxShadowFilterInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendFlexFilterInput = {
+  _33_?: Maybe<StringQueryOperatorInput>;
+  _50_?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendFontSizeFilterInput = {
+  _2xs?: Maybe<StringQueryOperatorInput>;
+  _3xs?: Maybe<StringQueryOperatorInput>;
+  _4xs?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendSpacingFilterInput = {
+  _15?: Maybe<StringQueryOperatorInput>;
+  _18?: Maybe<StringQueryOperatorInput>;
+  _55?: Maybe<StringQueryOperatorInput>;
+  _65?: Maybe<StringQueryOperatorInput>;
+  _84?: Maybe<StringQueryOperatorInput>;
+  _100?: Maybe<StringQueryOperatorInput>;
+  _120?: Maybe<StringQueryOperatorInput>;
+  _140?: Maybe<StringQueryOperatorInput>;
+  _160?: Maybe<StringQueryOperatorInput>;
+  _26_67?: Maybe<StringQueryOperatorInput>;
+  _33_33?: Maybe<StringQueryOperatorInput>;
+  _78_5?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendWidthFilterInput = {
+  inherit?: Maybe<StringQueryOperatorInput>;
+  fit_content?: Maybe<StringQueryOperatorInput>;
+  _1_10?: Maybe<StringQueryOperatorInput>;
+  _2_10?: Maybe<StringQueryOperatorInput>;
+  _3_10?: Maybe<StringQueryOperatorInput>;
+  _4_10?: Maybe<StringQueryOperatorInput>;
+  _5_10?: Maybe<StringQueryOperatorInput>;
+  _6_10?: Maybe<StringQueryOperatorInput>;
+  _7_10?: Maybe<StringQueryOperatorInput>;
+  _8_10?: Maybe<StringQueryOperatorInput>;
+  _9_10?: Maybe<StringQueryOperatorInput>;
+  _48_?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendMaxWidthFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>;
+  _1?: Maybe<StringQueryOperatorInput>;
+  _2?: Maybe<StringQueryOperatorInput>;
+  _3?: Maybe<StringQueryOperatorInput>;
+  _4?: Maybe<StringQueryOperatorInput>;
+  _5?: Maybe<StringQueryOperatorInput>;
+  _6?: Maybe<StringQueryOperatorInput>;
+  _7?: Maybe<StringQueryOperatorInput>;
+  _8?: Maybe<StringQueryOperatorInput>;
+  _9?: Maybe<StringQueryOperatorInput>;
+  _10?: Maybe<StringQueryOperatorInput>;
+  _11?: Maybe<StringQueryOperatorInput>;
+  _12?: Maybe<StringQueryOperatorInput>;
+  _14?: Maybe<StringQueryOperatorInput>;
+  _15?: Maybe<StringQueryOperatorInput>;
+  _16?: Maybe<StringQueryOperatorInput>;
+  _18?: Maybe<StringQueryOperatorInput>;
+  _20?: Maybe<StringQueryOperatorInput>;
+  _24?: Maybe<StringQueryOperatorInput>;
+  _28?: Maybe<StringQueryOperatorInput>;
+  _32?: Maybe<StringQueryOperatorInput>;
+  _36?: Maybe<StringQueryOperatorInput>;
+  _40?: Maybe<StringQueryOperatorInput>;
+  _44?: Maybe<StringQueryOperatorInput>;
+  _48?: Maybe<StringQueryOperatorInput>;
+  _52?: Maybe<StringQueryOperatorInput>;
+  _55?: Maybe<StringQueryOperatorInput>;
+  _56?: Maybe<StringQueryOperatorInput>;
+  _60?: Maybe<StringQueryOperatorInput>;
+  _64?: Maybe<StringQueryOperatorInput>;
+  _65?: Maybe<StringQueryOperatorInput>;
+  _72?: Maybe<StringQueryOperatorInput>;
+  _80?: Maybe<StringQueryOperatorInput>;
+  _84?: Maybe<StringQueryOperatorInput>;
+  _96?: Maybe<StringQueryOperatorInput>;
+  _100?: Maybe<StringQueryOperatorInput>;
+  _120?: Maybe<StringQueryOperatorInput>;
+  _140?: Maybe<StringQueryOperatorInput>;
+  _160?: Maybe<StringQueryOperatorInput>;
+  auto?: Maybe<StringQueryOperatorInput>;
+  px?: Maybe<StringQueryOperatorInput>;
+  _0_5?: Maybe<StringQueryOperatorInput>;
+  _1_5?: Maybe<StringQueryOperatorInput>;
+  _2_5?: Maybe<StringQueryOperatorInput>;
+  _3_5?: Maybe<StringQueryOperatorInput>;
+  _1_2?: Maybe<StringQueryOperatorInput>;
+  _1_3?: Maybe<StringQueryOperatorInput>;
+  _2_3?: Maybe<StringQueryOperatorInput>;
+  _1_4?: Maybe<StringQueryOperatorInput>;
+  _2_4?: Maybe<StringQueryOperatorInput>;
+  _3_4?: Maybe<StringQueryOperatorInput>;
+  _4_5?: Maybe<StringQueryOperatorInput>;
+  _1_6?: Maybe<StringQueryOperatorInput>;
+  _2_6?: Maybe<StringQueryOperatorInput>;
+  _3_6?: Maybe<StringQueryOperatorInput>;
+  _4_6?: Maybe<StringQueryOperatorInput>;
+  _5_6?: Maybe<StringQueryOperatorInput>;
+  _1_12?: Maybe<StringQueryOperatorInput>;
+  _2_12?: Maybe<StringQueryOperatorInput>;
+  _3_12?: Maybe<StringQueryOperatorInput>;
+  _4_12?: Maybe<StringQueryOperatorInput>;
+  _5_12?: Maybe<StringQueryOperatorInput>;
+  _6_12?: Maybe<StringQueryOperatorInput>;
+  _7_12?: Maybe<StringQueryOperatorInput>;
+  _8_12?: Maybe<StringQueryOperatorInput>;
+  _9_12?: Maybe<StringQueryOperatorInput>;
+  _10_12?: Maybe<StringQueryOperatorInput>;
+  _11_12?: Maybe<StringQueryOperatorInput>;
+  full?: Maybe<StringQueryOperatorInput>;
+  screen?: Maybe<StringQueryOperatorInput>;
+  min?: Maybe<StringQueryOperatorInput>;
+  max?: Maybe<StringQueryOperatorInput>;
+  _26_67?: Maybe<StringQueryOperatorInput>;
+  _33_33?: Maybe<StringQueryOperatorInput>;
+  _78_5?: Maybe<StringQueryOperatorInput>;
+  logo?: Maybe<StringQueryOperatorInput>;
+  _1_7?: Maybe<StringQueryOperatorInput>;
+  _1_8?: Maybe<StringQueryOperatorInput>;
+  _1_10?: Maybe<StringQueryOperatorInput>;
+  _2_10?: Maybe<StringQueryOperatorInput>;
+  _3_10?: Maybe<StringQueryOperatorInput>;
+  _4_10?: Maybe<StringQueryOperatorInput>;
+  _5_10?: Maybe<StringQueryOperatorInput>;
+  _6_10?: Maybe<StringQueryOperatorInput>;
+  _7_10?: Maybe<StringQueryOperatorInput>;
+  _8_10?: Maybe<StringQueryOperatorInput>;
+  _9_10?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendMinWidthFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>;
+  _1?: Maybe<StringQueryOperatorInput>;
+  _2?: Maybe<StringQueryOperatorInput>;
+  _3?: Maybe<StringQueryOperatorInput>;
+  _4?: Maybe<StringQueryOperatorInput>;
+  _5?: Maybe<StringQueryOperatorInput>;
+  _6?: Maybe<StringQueryOperatorInput>;
+  _7?: Maybe<StringQueryOperatorInput>;
+  _8?: Maybe<StringQueryOperatorInput>;
+  _9?: Maybe<StringQueryOperatorInput>;
+  _10?: Maybe<StringQueryOperatorInput>;
+  _11?: Maybe<StringQueryOperatorInput>;
+  _12?: Maybe<StringQueryOperatorInput>;
+  _14?: Maybe<StringQueryOperatorInput>;
+  _15?: Maybe<StringQueryOperatorInput>;
+  _16?: Maybe<StringQueryOperatorInput>;
+  _18?: Maybe<StringQueryOperatorInput>;
+  _20?: Maybe<StringQueryOperatorInput>;
+  _24?: Maybe<StringQueryOperatorInput>;
+  _28?: Maybe<StringQueryOperatorInput>;
+  _32?: Maybe<StringQueryOperatorInput>;
+  _36?: Maybe<StringQueryOperatorInput>;
+  _40?: Maybe<StringQueryOperatorInput>;
+  _44?: Maybe<StringQueryOperatorInput>;
+  _48?: Maybe<StringQueryOperatorInput>;
+  _52?: Maybe<StringQueryOperatorInput>;
+  _55?: Maybe<StringQueryOperatorInput>;
+  _56?: Maybe<StringQueryOperatorInput>;
+  _60?: Maybe<StringQueryOperatorInput>;
+  _64?: Maybe<StringQueryOperatorInput>;
+  _65?: Maybe<StringQueryOperatorInput>;
+  _72?: Maybe<StringQueryOperatorInput>;
+  _80?: Maybe<StringQueryOperatorInput>;
+  _84?: Maybe<StringQueryOperatorInput>;
+  _96?: Maybe<StringQueryOperatorInput>;
+  _100?: Maybe<StringQueryOperatorInput>;
+  _120?: Maybe<StringQueryOperatorInput>;
+  _140?: Maybe<StringQueryOperatorInput>;
+  _160?: Maybe<StringQueryOperatorInput>;
+  auto?: Maybe<StringQueryOperatorInput>;
+  px?: Maybe<StringQueryOperatorInput>;
+  _0_5?: Maybe<StringQueryOperatorInput>;
+  _1_5?: Maybe<StringQueryOperatorInput>;
+  _2_5?: Maybe<StringQueryOperatorInput>;
+  _3_5?: Maybe<StringQueryOperatorInput>;
+  _1_2?: Maybe<StringQueryOperatorInput>;
+  _1_3?: Maybe<StringQueryOperatorInput>;
+  _2_3?: Maybe<StringQueryOperatorInput>;
+  _1_4?: Maybe<StringQueryOperatorInput>;
+  _2_4?: Maybe<StringQueryOperatorInput>;
+  _3_4?: Maybe<StringQueryOperatorInput>;
+  _4_5?: Maybe<StringQueryOperatorInput>;
+  _1_6?: Maybe<StringQueryOperatorInput>;
+  _2_6?: Maybe<StringQueryOperatorInput>;
+  _3_6?: Maybe<StringQueryOperatorInput>;
+  _4_6?: Maybe<StringQueryOperatorInput>;
+  _5_6?: Maybe<StringQueryOperatorInput>;
+  _1_12?: Maybe<StringQueryOperatorInput>;
+  _2_12?: Maybe<StringQueryOperatorInput>;
+  _3_12?: Maybe<StringQueryOperatorInput>;
+  _4_12?: Maybe<StringQueryOperatorInput>;
+  _5_12?: Maybe<StringQueryOperatorInput>;
+  _6_12?: Maybe<StringQueryOperatorInput>;
+  _7_12?: Maybe<StringQueryOperatorInput>;
+  _8_12?: Maybe<StringQueryOperatorInput>;
+  _9_12?: Maybe<StringQueryOperatorInput>;
+  _10_12?: Maybe<StringQueryOperatorInput>;
+  _11_12?: Maybe<StringQueryOperatorInput>;
+  full?: Maybe<StringQueryOperatorInput>;
+  screen?: Maybe<StringQueryOperatorInput>;
+  min?: Maybe<StringQueryOperatorInput>;
+  max?: Maybe<StringQueryOperatorInput>;
+  _26_67?: Maybe<StringQueryOperatorInput>;
+  _33_33?: Maybe<StringQueryOperatorInput>;
+  _78_5?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendInsetFilterInput = {
+  mobile_nav_height?: Maybe<StringQueryOperatorInput>;
+  _1_5?: Maybe<StringQueryOperatorInput>;
+  _1_6?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendHeightFilterInput = {
+  desktop_nav?: Maybe<StringQueryOperatorInput>;
+  mobile_nav?: Maybe<StringQueryOperatorInput>;
+  mobile_nav_container?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendMinHeightFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>;
+  _1?: Maybe<StringQueryOperatorInput>;
+  _2?: Maybe<StringQueryOperatorInput>;
+  _3?: Maybe<StringQueryOperatorInput>;
+  _4?: Maybe<StringQueryOperatorInput>;
+  _5?: Maybe<StringQueryOperatorInput>;
+  _6?: Maybe<StringQueryOperatorInput>;
+  _7?: Maybe<StringQueryOperatorInput>;
+  _8?: Maybe<StringQueryOperatorInput>;
+  _9?: Maybe<StringQueryOperatorInput>;
+  _10?: Maybe<StringQueryOperatorInput>;
+  _11?: Maybe<StringQueryOperatorInput>;
+  _12?: Maybe<StringQueryOperatorInput>;
+  _14?: Maybe<StringQueryOperatorInput>;
+  _16?: Maybe<StringQueryOperatorInput>;
+  _20?: Maybe<StringQueryOperatorInput>;
+  _24?: Maybe<StringQueryOperatorInput>;
+  _28?: Maybe<StringQueryOperatorInput>;
+  _32?: Maybe<StringQueryOperatorInput>;
+  _36?: Maybe<StringQueryOperatorInput>;
+  _40?: Maybe<StringQueryOperatorInput>;
+  _44?: Maybe<StringQueryOperatorInput>;
+  _48?: Maybe<StringQueryOperatorInput>;
+  _52?: Maybe<StringQueryOperatorInput>;
+  _56?: Maybe<StringQueryOperatorInput>;
+  _60?: Maybe<StringQueryOperatorInput>;
+  _64?: Maybe<StringQueryOperatorInput>;
+  _72?: Maybe<StringQueryOperatorInput>;
+  _80?: Maybe<StringQueryOperatorInput>;
+  _96?: Maybe<StringQueryOperatorInput>;
+  auto?: Maybe<StringQueryOperatorInput>;
+  px?: Maybe<StringQueryOperatorInput>;
+  _0_5?: Maybe<StringQueryOperatorInput>;
+  _1_5?: Maybe<StringQueryOperatorInput>;
+  _2_5?: Maybe<StringQueryOperatorInput>;
+  _3_5?: Maybe<StringQueryOperatorInput>;
+  _1_2?: Maybe<StringQueryOperatorInput>;
+  _1_3?: Maybe<StringQueryOperatorInput>;
+  _2_3?: Maybe<StringQueryOperatorInput>;
+  _1_4?: Maybe<StringQueryOperatorInput>;
+  _2_4?: Maybe<StringQueryOperatorInput>;
+  _3_4?: Maybe<StringQueryOperatorInput>;
+  _4_5?: Maybe<StringQueryOperatorInput>;
+  _1_6?: Maybe<StringQueryOperatorInput>;
+  _2_6?: Maybe<StringQueryOperatorInput>;
+  _3_6?: Maybe<StringQueryOperatorInput>;
+  _4_6?: Maybe<StringQueryOperatorInput>;
+  _5_6?: Maybe<StringQueryOperatorInput>;
+  full?: Maybe<StringQueryOperatorInput>;
+  screen?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendMaxHeightFilterInput = {
+  home_hero_carousel?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendPaddingFilterInput = {
+  _15?: Maybe<StringQueryOperatorInput>;
+  _2_67?: Maybe<StringQueryOperatorInput>;
+  _1_2?: Maybe<StringQueryOperatorInput>;
+  _1_3?: Maybe<StringQueryOperatorInput>;
+  _1_4?: Maybe<StringQueryOperatorInput>;
+  _1_5?: Maybe<StringQueryOperatorInput>;
+  _1_6?: Maybe<StringQueryOperatorInput>;
+  _1_7?: Maybe<StringQueryOperatorInput>;
+  _1_8?: Maybe<StringQueryOperatorInput>;
+  _1_9?: Maybe<StringQueryOperatorInput>;
+  _1_10?: Maybe<StringQueryOperatorInput>;
+  _1_11?: Maybe<StringQueryOperatorInput>;
+  _1_12?: Maybe<StringQueryOperatorInput>;
+  _1_13?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendLineHeightFilterInput = {
+  _11?: Maybe<StringQueryOperatorInput>;
+  extra_tight?: Maybe<FloatQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsFilterInput = {
+  citrine?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineFilterInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineFilterInput = {
+  background?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineBackgroundFilterInput>;
+  primary?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrinePrimaryFilterInput>;
+  gray?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineGrayFilterInput>;
+  black?: Maybe<StringQueryOperatorInput>;
+  accent?: Maybe<StringQueryOperatorInput>;
+  off_white?: Maybe<StringQueryOperatorInput>;
+  blue?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineBlueFilterInput>;
+  turquoise?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineTurquoiseFilterInput>;
+  orange?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineOrangeFilterInput>;
+  purple?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrinePurpleFilterInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineBackgroundFilterInput = {
+  overflow?: Maybe<StringQueryOperatorInput>;
+  hero?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrinePrimaryFilterInput = {
+  light?: Maybe<StringQueryOperatorInput>;
+  medium?: Maybe<StringQueryOperatorInput>;
+  dark?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineGrayFilterInput = {
+  light?: Maybe<StringQueryOperatorInput>;
+  medium?: Maybe<StringQueryOperatorInput>;
+  dark?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineBlueFilterInput = {
+  light?: Maybe<StringQueryOperatorInput>;
+  dark?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineTurquoiseFilterInput = {
+  light?: Maybe<StringQueryOperatorInput>;
+  dark?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrineOrangeFilterInput = {
+  light?: Maybe<StringQueryOperatorInput>;
+  dark?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendColorsCitrinePurpleFilterInput = {
+  light?: Maybe<StringQueryOperatorInput>;
+  dark?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendTransitionPropertyFilterInput = {
+  left?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeExtendBoxShadowFilterInput = {
+  body?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsVariantsFilterInput = {
+  extend?: Maybe<SitePluginPluginOptionsPostCssPluginsVariantsExtendFilterInput>;
+};
+
+export type SitePluginPluginOptionsPostCssPluginsVariantsExtendFilterInput = {
+  padding?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsDefaultsFilterInput = {
@@ -3462,16 +4294,6 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 export type SitePluginPackageJsonPeerDependenciesFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   version?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePageContextFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-  _xparams?: Maybe<SitePageContext_XparamsFilterInput>;
-};
-
-export type SitePageContext_XparamsFilterInput = {
-  title?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageConnection = {
@@ -3525,101 +4347,6 @@ export type SitePageFieldsEnum =
   | 'internalComponentName'
   | 'componentChunkName'
   | 'matchPath'
-  | 'isCreatedByStatefulCreatePages'
-  | 'pluginCreator___id'
-  | 'pluginCreator___parent___id'
-  | 'pluginCreator___parent___parent___id'
-  | 'pluginCreator___parent___parent___children'
-  | 'pluginCreator___parent___children'
-  | 'pluginCreator___parent___children___id'
-  | 'pluginCreator___parent___children___children'
-  | 'pluginCreator___parent___internal___content'
-  | 'pluginCreator___parent___internal___contentDigest'
-  | 'pluginCreator___parent___internal___description'
-  | 'pluginCreator___parent___internal___fieldOwners'
-  | 'pluginCreator___parent___internal___ignoreType'
-  | 'pluginCreator___parent___internal___mediaType'
-  | 'pluginCreator___parent___internal___owner'
-  | 'pluginCreator___parent___internal___type'
-  | 'pluginCreator___children'
-  | 'pluginCreator___children___id'
-  | 'pluginCreator___children___parent___id'
-  | 'pluginCreator___children___parent___children'
-  | 'pluginCreator___children___children'
-  | 'pluginCreator___children___children___id'
-  | 'pluginCreator___children___children___children'
-  | 'pluginCreator___children___internal___content'
-  | 'pluginCreator___children___internal___contentDigest'
-  | 'pluginCreator___children___internal___description'
-  | 'pluginCreator___children___internal___fieldOwners'
-  | 'pluginCreator___children___internal___ignoreType'
-  | 'pluginCreator___children___internal___mediaType'
-  | 'pluginCreator___children___internal___owner'
-  | 'pluginCreator___children___internal___type'
-  | 'pluginCreator___internal___content'
-  | 'pluginCreator___internal___contentDigest'
-  | 'pluginCreator___internal___description'
-  | 'pluginCreator___internal___fieldOwners'
-  | 'pluginCreator___internal___ignoreType'
-  | 'pluginCreator___internal___mediaType'
-  | 'pluginCreator___internal___owner'
-  | 'pluginCreator___internal___type'
-  | 'pluginCreator___resolve'
-  | 'pluginCreator___name'
-  | 'pluginCreator___version'
-  | 'pluginCreator___pluginOptions___defaults___formats'
-  | 'pluginCreator___pluginOptions___defaults___placeholder'
-  | 'pluginCreator___pluginOptions___defaults___breakpoints'
-  | 'pluginCreator___pluginOptions___base64Width'
-  | 'pluginCreator___pluginOptions___stripMetadata'
-  | 'pluginCreator___pluginOptions___defaultQuality'
-  | 'pluginCreator___pluginOptions___failOnError'
-  | 'pluginCreator___pluginOptions___fileName'
-  | 'pluginCreator___pluginOptions___documentPaths'
-  | 'pluginCreator___pluginOptions___codegenDelay'
-  | 'pluginCreator___pluginOptions___name'
-  | 'pluginCreator___pluginOptions___path'
-  | 'pluginCreator___pluginOptions___short_name'
-  | 'pluginCreator___pluginOptions___start_url'
-  | 'pluginCreator___pluginOptions___background_color'
-  | 'pluginCreator___pluginOptions___theme_color'
-  | 'pluginCreator___pluginOptions___display'
-  | 'pluginCreator___pluginOptions___icon'
-  | 'pluginCreator___pluginOptions___legacy'
-  | 'pluginCreator___pluginOptions___theme_color_in_head'
-  | 'pluginCreator___pluginOptions___cache_busting_mode'
-  | 'pluginCreator___pluginOptions___crossOrigin'
-  | 'pluginCreator___pluginOptions___include_favicon'
-  | 'pluginCreator___pluginOptions___cacheDigest'
-  | 'pluginCreator___pluginOptions___enableIdentityWidget'
-  | 'pluginCreator___pluginOptions___publicPath'
-  | 'pluginCreator___pluginOptions___manualInit'
-  | 'pluginCreator___pluginOptions___includeRobots'
-  | 'pluginCreator___pluginOptions___modulePath'
-  | 'pluginCreator___pluginOptions___pathCheck'
-  | 'pluginCreator___pluginOptions___allExtensions'
-  | 'pluginCreator___pluginOptions___isTSX'
-  | 'pluginCreator___pluginOptions___jsxPragma'
-  | 'pluginCreator___nodeAPIs'
-  | 'pluginCreator___browserAPIs'
-  | 'pluginCreator___ssrAPIs'
-  | 'pluginCreator___pluginFilepath'
-  | 'pluginCreator___packageJson___name'
-  | 'pluginCreator___packageJson___description'
-  | 'pluginCreator___packageJson___version'
-  | 'pluginCreator___packageJson___main'
-  | 'pluginCreator___packageJson___license'
-  | 'pluginCreator___packageJson___dependencies'
-  | 'pluginCreator___packageJson___dependencies___name'
-  | 'pluginCreator___packageJson___dependencies___version'
-  | 'pluginCreator___packageJson___devDependencies'
-  | 'pluginCreator___packageJson___devDependencies___name'
-  | 'pluginCreator___packageJson___devDependencies___version'
-  | 'pluginCreator___packageJson___peerDependencies'
-  | 'pluginCreator___packageJson___peerDependencies___name'
-  | 'pluginCreator___packageJson___peerDependencies___version'
-  | 'pluginCreator___packageJson___keywords'
-  | 'pluginCreatorId'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -3706,9 +4433,107 @@ export type SitePageFieldsEnum =
   | 'internal___mediaType'
   | 'internal___owner'
   | 'internal___type'
+  | 'isCreatedByStatefulCreatePages'
   | 'context___id'
   | 'context___title'
-  | 'context____xparams___title';
+  | 'context____xparams___title'
+  | 'pluginCreator___id'
+  | 'pluginCreator___parent___id'
+  | 'pluginCreator___parent___parent___id'
+  | 'pluginCreator___parent___parent___children'
+  | 'pluginCreator___parent___children'
+  | 'pluginCreator___parent___children___id'
+  | 'pluginCreator___parent___children___children'
+  | 'pluginCreator___parent___internal___content'
+  | 'pluginCreator___parent___internal___contentDigest'
+  | 'pluginCreator___parent___internal___description'
+  | 'pluginCreator___parent___internal___fieldOwners'
+  | 'pluginCreator___parent___internal___ignoreType'
+  | 'pluginCreator___parent___internal___mediaType'
+  | 'pluginCreator___parent___internal___owner'
+  | 'pluginCreator___parent___internal___type'
+  | 'pluginCreator___children'
+  | 'pluginCreator___children___id'
+  | 'pluginCreator___children___parent___id'
+  | 'pluginCreator___children___parent___children'
+  | 'pluginCreator___children___children'
+  | 'pluginCreator___children___children___id'
+  | 'pluginCreator___children___children___children'
+  | 'pluginCreator___children___internal___content'
+  | 'pluginCreator___children___internal___contentDigest'
+  | 'pluginCreator___children___internal___description'
+  | 'pluginCreator___children___internal___fieldOwners'
+  | 'pluginCreator___children___internal___ignoreType'
+  | 'pluginCreator___children___internal___mediaType'
+  | 'pluginCreator___children___internal___owner'
+  | 'pluginCreator___children___internal___type'
+  | 'pluginCreator___internal___content'
+  | 'pluginCreator___internal___contentDigest'
+  | 'pluginCreator___internal___description'
+  | 'pluginCreator___internal___fieldOwners'
+  | 'pluginCreator___internal___ignoreType'
+  | 'pluginCreator___internal___mediaType'
+  | 'pluginCreator___internal___owner'
+  | 'pluginCreator___internal___type'
+  | 'pluginCreator___resolve'
+  | 'pluginCreator___name'
+  | 'pluginCreator___version'
+  | 'pluginCreator___pluginOptions___postCssPlugins'
+  | 'pluginCreator___pluginOptions___postCssPlugins___purge'
+  | 'pluginCreator___pluginOptions___postCssPlugins___darkMode'
+  | 'pluginCreator___pluginOptions___defaults___formats'
+  | 'pluginCreator___pluginOptions___defaults___placeholder'
+  | 'pluginCreator___pluginOptions___defaults___breakpoints'
+  | 'pluginCreator___pluginOptions___base64Width'
+  | 'pluginCreator___pluginOptions___stripMetadata'
+  | 'pluginCreator___pluginOptions___defaultQuality'
+  | 'pluginCreator___pluginOptions___failOnError'
+  | 'pluginCreator___pluginOptions___fileName'
+  | 'pluginCreator___pluginOptions___documentPaths'
+  | 'pluginCreator___pluginOptions___codegenDelay'
+  | 'pluginCreator___pluginOptions___name'
+  | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___short_name'
+  | 'pluginCreator___pluginOptions___start_url'
+  | 'pluginCreator___pluginOptions___background_color'
+  | 'pluginCreator___pluginOptions___theme_color'
+  | 'pluginCreator___pluginOptions___display'
+  | 'pluginCreator___pluginOptions___icon'
+  | 'pluginCreator___pluginOptions___legacy'
+  | 'pluginCreator___pluginOptions___theme_color_in_head'
+  | 'pluginCreator___pluginOptions___cache_busting_mode'
+  | 'pluginCreator___pluginOptions___crossOrigin'
+  | 'pluginCreator___pluginOptions___include_favicon'
+  | 'pluginCreator___pluginOptions___cacheDigest'
+  | 'pluginCreator___pluginOptions___enableIdentityWidget'
+  | 'pluginCreator___pluginOptions___publicPath'
+  | 'pluginCreator___pluginOptions___manualInit'
+  | 'pluginCreator___pluginOptions___includeRobots'
+  | 'pluginCreator___pluginOptions___modulePath'
+  | 'pluginCreator___pluginOptions___pathCheck'
+  | 'pluginCreator___pluginOptions___allExtensions'
+  | 'pluginCreator___pluginOptions___isTSX'
+  | 'pluginCreator___pluginOptions___jsxPragma'
+  | 'pluginCreator___nodeAPIs'
+  | 'pluginCreator___browserAPIs'
+  | 'pluginCreator___ssrAPIs'
+  | 'pluginCreator___pluginFilepath'
+  | 'pluginCreator___packageJson___name'
+  | 'pluginCreator___packageJson___description'
+  | 'pluginCreator___packageJson___version'
+  | 'pluginCreator___packageJson___main'
+  | 'pluginCreator___packageJson___license'
+  | 'pluginCreator___packageJson___dependencies'
+  | 'pluginCreator___packageJson___dependencies___name'
+  | 'pluginCreator___packageJson___dependencies___version'
+  | 'pluginCreator___packageJson___devDependencies'
+  | 'pluginCreator___packageJson___devDependencies___name'
+  | 'pluginCreator___packageJson___devDependencies___version'
+  | 'pluginCreator___packageJson___peerDependencies'
+  | 'pluginCreator___packageJson___peerDependencies___name'
+  | 'pluginCreator___packageJson___peerDependencies___version'
+  | 'pluginCreator___packageJson___keywords'
+  | 'pluginCreatorId';
 
 export type SitePageGroupConnection = {
   totalCount: Scalars['Int'];
@@ -3725,14 +4550,14 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
-  pluginCreator?: Maybe<SitePluginFilterInput>;
-  pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+  isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
+  pluginCreator?: Maybe<SitePluginFilterInput>;
+  pluginCreatorId?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageSortInput = {
@@ -4335,6 +5160,8 @@ export type ProjectsJsonFieldsEnum =
   | 'image___childrenProjectsJson___heroImage___children'
   | 'image___childrenProjectsJson___seo___title'
   | 'image___childrenProjectsJson___seo___description'
+  | 'image___childrenProjectsJson___technologies'
+  | 'image___childrenProjectsJson___languages'
   | 'image___childrenProjectsJson___gatsbyPath'
   | 'image___childrenProjectsJson___id'
   | 'image___childrenProjectsJson___parent___id'
@@ -4400,6 +5227,8 @@ export type ProjectsJsonFieldsEnum =
   | 'image___childProjectsJson___heroImage___children'
   | 'image___childProjectsJson___seo___title'
   | 'image___childProjectsJson___seo___description'
+  | 'image___childProjectsJson___technologies'
+  | 'image___childProjectsJson___languages'
   | 'image___childProjectsJson___gatsbyPath'
   | 'image___childProjectsJson___id'
   | 'image___childProjectsJson___parent___id'
@@ -4622,11 +5451,15 @@ export type ProjectsJsonFieldsEnum =
   | 'heroImage___data___childrenProjectsJson'
   | 'heroImage___data___childrenProjectsJson___title'
   | 'heroImage___data___childrenProjectsJson___body'
+  | 'heroImage___data___childrenProjectsJson___technologies'
+  | 'heroImage___data___childrenProjectsJson___languages'
   | 'heroImage___data___childrenProjectsJson___gatsbyPath'
   | 'heroImage___data___childrenProjectsJson___id'
   | 'heroImage___data___childrenProjectsJson___children'
   | 'heroImage___data___childProjectsJson___title'
   | 'heroImage___data___childProjectsJson___body'
+  | 'heroImage___data___childProjectsJson___technologies'
+  | 'heroImage___data___childProjectsJson___languages'
   | 'heroImage___data___childProjectsJson___gatsbyPath'
   | 'heroImage___data___childProjectsJson___id'
   | 'heroImage___data___childProjectsJson___children'
@@ -4771,6 +5604,8 @@ export type ProjectsJsonFieldsEnum =
   | 'seo___image___internal___owner'
   | 'seo___image___internal___type'
   | 'seo___description'
+  | 'technologies'
+  | 'languages'
   | 'gatsbyPath'
   | 'id'
   | 'parent___id'
@@ -5097,6 +5932,8 @@ export type ProjectsJsonHeroImageFieldsEnum =
   | 'data___childrenProjectsJson___heroImage___children'
   | 'data___childrenProjectsJson___seo___title'
   | 'data___childrenProjectsJson___seo___description'
+  | 'data___childrenProjectsJson___technologies'
+  | 'data___childrenProjectsJson___languages'
   | 'data___childrenProjectsJson___gatsbyPath'
   | 'data___childrenProjectsJson___id'
   | 'data___childrenProjectsJson___parent___id'
@@ -5162,6 +5999,8 @@ export type ProjectsJsonHeroImageFieldsEnum =
   | 'data___childProjectsJson___heroImage___children'
   | 'data___childProjectsJson___seo___title'
   | 'data___childProjectsJson___seo___description'
+  | 'data___childProjectsJson___technologies'
+  | 'data___childProjectsJson___languages'
   | 'data___childProjectsJson___gatsbyPath'
   | 'data___childProjectsJson___id'
   | 'data___childProjectsJson___parent___id'
@@ -5665,6 +6504,8 @@ export type ProjectsJsonSeoImageFieldsEnum =
   | 'data___childrenProjectsJson___heroImage___children'
   | 'data___childrenProjectsJson___seo___title'
   | 'data___childrenProjectsJson___seo___description'
+  | 'data___childrenProjectsJson___technologies'
+  | 'data___childrenProjectsJson___languages'
   | 'data___childrenProjectsJson___gatsbyPath'
   | 'data___childrenProjectsJson___id'
   | 'data___childrenProjectsJson___parent___id'
@@ -5730,6 +6571,8 @@ export type ProjectsJsonSeoImageFieldsEnum =
   | 'data___childProjectsJson___heroImage___children'
   | 'data___childProjectsJson___seo___title'
   | 'data___childProjectsJson___seo___description'
+  | 'data___childProjectsJson___technologies'
+  | 'data___childProjectsJson___languages'
   | 'data___childProjectsJson___gatsbyPath'
   | 'data___childProjectsJson___id'
   | 'data___childProjectsJson___parent___id'
@@ -6100,11 +6943,15 @@ export type HeroJsonFieldsEnum =
   | 'heroImage___data___childrenProjectsJson'
   | 'heroImage___data___childrenProjectsJson___title'
   | 'heroImage___data___childrenProjectsJson___body'
+  | 'heroImage___data___childrenProjectsJson___technologies'
+  | 'heroImage___data___childrenProjectsJson___languages'
   | 'heroImage___data___childrenProjectsJson___gatsbyPath'
   | 'heroImage___data___childrenProjectsJson___id'
   | 'heroImage___data___childrenProjectsJson___children'
   | 'heroImage___data___childProjectsJson___title'
   | 'heroImage___data___childProjectsJson___body'
+  | 'heroImage___data___childProjectsJson___technologies'
+  | 'heroImage___data___childProjectsJson___languages'
   | 'heroImage___data___childProjectsJson___gatsbyPath'
   | 'heroImage___data___childProjectsJson___id'
   | 'heroImage___data___childProjectsJson___children'
@@ -6576,6 +7423,8 @@ export type HeroJsonSeoImageFieldsEnum =
   | 'data___childrenProjectsJson___heroImage___children'
   | 'data___childrenProjectsJson___seo___title'
   | 'data___childrenProjectsJson___seo___description'
+  | 'data___childrenProjectsJson___technologies'
+  | 'data___childrenProjectsJson___languages'
   | 'data___childrenProjectsJson___gatsbyPath'
   | 'data___childrenProjectsJson___id'
   | 'data___childrenProjectsJson___parent___id'
@@ -6641,6 +7490,8 @@ export type HeroJsonSeoImageFieldsEnum =
   | 'data___childProjectsJson___heroImage___children'
   | 'data___childProjectsJson___seo___title'
   | 'data___childProjectsJson___seo___description'
+  | 'data___childProjectsJson___technologies'
+  | 'data___childProjectsJson___languages'
   | 'data___childProjectsJson___gatsbyPath'
   | 'data___childProjectsJson___id'
   | 'data___childProjectsJson___parent___id'
@@ -7143,6 +7994,8 @@ export type HeroJsonHeroImageFieldsEnum =
   | 'data___childrenProjectsJson___heroImage___children'
   | 'data___childrenProjectsJson___seo___title'
   | 'data___childrenProjectsJson___seo___description'
+  | 'data___childrenProjectsJson___technologies'
+  | 'data___childrenProjectsJson___languages'
   | 'data___childrenProjectsJson___gatsbyPath'
   | 'data___childrenProjectsJson___id'
   | 'data___childrenProjectsJson___parent___id'
@@ -7208,6 +8061,8 @@ export type HeroJsonHeroImageFieldsEnum =
   | 'data___childProjectsJson___heroImage___children'
   | 'data___childProjectsJson___seo___title'
   | 'data___childProjectsJson___seo___description'
+  | 'data___childProjectsJson___technologies'
+  | 'data___childProjectsJson___languages'
   | 'data___childProjectsJson___gatsbyPath'
   | 'data___childProjectsJson___id'
   | 'data___childProjectsJson___parent___id'
@@ -7863,6 +8718,8 @@ export type AboutJsonSeoImageFieldsEnum =
   | 'data___childrenProjectsJson___heroImage___children'
   | 'data___childrenProjectsJson___seo___title'
   | 'data___childrenProjectsJson___seo___description'
+  | 'data___childrenProjectsJson___technologies'
+  | 'data___childrenProjectsJson___languages'
   | 'data___childrenProjectsJson___gatsbyPath'
   | 'data___childrenProjectsJson___id'
   | 'data___childrenProjectsJson___parent___id'
@@ -7928,6 +8785,8 @@ export type AboutJsonSeoImageFieldsEnum =
   | 'data___childProjectsJson___heroImage___children'
   | 'data___childProjectsJson___seo___title'
   | 'data___childProjectsJson___seo___description'
+  | 'data___childProjectsJson___technologies'
+  | 'data___childProjectsJson___languages'
   | 'data___childProjectsJson___gatsbyPath'
   | 'data___childProjectsJson___id'
   | 'data___childProjectsJson___parent___id'
@@ -8587,6 +9446,8 @@ export type ContactJsonSeoImageFieldsEnum =
   | 'data___childrenProjectsJson___heroImage___children'
   | 'data___childrenProjectsJson___seo___title'
   | 'data___childrenProjectsJson___seo___description'
+  | 'data___childrenProjectsJson___technologies'
+  | 'data___childrenProjectsJson___languages'
   | 'data___childrenProjectsJson___gatsbyPath'
   | 'data___childrenProjectsJson___id'
   | 'data___childrenProjectsJson___parent___id'
@@ -8652,6 +9513,8 @@ export type ContactJsonSeoImageFieldsEnum =
   | 'data___childProjectsJson___heroImage___children'
   | 'data___childProjectsJson___seo___title'
   | 'data___childProjectsJson___seo___description'
+  | 'data___childProjectsJson___technologies'
+  | 'data___childProjectsJson___languages'
   | 'data___childProjectsJson___gatsbyPath'
   | 'data___childProjectsJson___id'
   | 'data___childProjectsJson___parent___id'
@@ -9072,6 +9935,9 @@ export type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
+  | 'pluginOptions___postCssPlugins'
+  | 'pluginOptions___postCssPlugins___purge'
+  | 'pluginOptions___postCssPlugins___darkMode'
   | 'pluginOptions___defaults___formats'
   | 'pluginOptions___defaults___placeholder'
   | 'pluginOptions___defaults___breakpoints'
@@ -9295,16 +10161,32 @@ export type SiteBuildMetadataSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
+export type SiteTitleQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type SiteTitleQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_1_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+
 export type MainPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MainPageQuery = { allProjectsJson: { edges: Array<{ node: (
-        Pick<ProjectsJson, 'body' | 'title'>
-        & { heroImage?: Maybe<(
-          Pick<ProjectsJsonHeroImage, 'alt' | 'label'>
+export type MainPageQuery = { allProjectsJson: { nodes: Array<(
+      Pick<ProjectsJson, 'body' | 'title' | 'technologies' | 'languages'>
+      & { seo?: Maybe<(
+        Pick<ProjectsJsonSeo, 'description' | 'title'>
+        & { image?: Maybe<(
+          Pick<ProjectsJsonSeoImage, 'alt'>
           & { data?: Maybe<{ childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
         )> }
-      ) }> }, contactJson?: Maybe<Pick<ContactJson, 'body' | 'title'>>, heroJson?: Maybe<(
+      )>, heroImage?: Maybe<(
+        Pick<ProjectsJsonHeroImage, 'label' | 'alt'>
+        & { data?: Maybe<{ childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
+      )> }
+    )> }, contactJson?: Maybe<Pick<ContactJson, 'body' | 'title'>>, heroJson?: Maybe<(
     Pick<HeroJson, 'title'>
     & { seo?: Maybe<(
       Pick<HeroJsonSeo, 'title' | 'description'>
@@ -9318,12 +10200,12 @@ export type MainPageQuery = { allProjectsJson: { edges: Array<{ node: (
     )> }
   )>, aboutJson?: Maybe<Pick<AboutJson, 'body' | 'title' | 'technologies' | 'languages'>> };
 
-export type ProjectsQueryVariables = Exact<{
+export type ProjectQueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-export type ProjectsQuery = { json?: Maybe<(
+export type ProjectQuery = { json?: Maybe<(
     Pick<ProjectsJson, 'body' | 'title'>
     & { seo?: Maybe<(
       Pick<ProjectsJsonSeo, 'description' | 'title'>

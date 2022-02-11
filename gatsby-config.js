@@ -1,4 +1,6 @@
 const path = require("path")
+const tailwindcss = require("tailwindcss")
+const tailwindConfig = require("./tailwind.config")
 
 function capitalize(str) {
   return str[0].toUpperCase() + str.slice(1)
@@ -51,12 +53,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    // {
-    //   resolve: `gatsby-plugin-sass`,
-    //   options: {
-    //     postCssPlugins: [tailwindcss, tailwindConfig],
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        postCssPlugins: [tailwindcss, tailwindConfig],
+      },
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-sharp`,

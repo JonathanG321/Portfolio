@@ -109,14 +109,50 @@ module.exports = {
       }
     `)
   },
-  onCreateWebpackConfig({ actions }) {
-    actions.setWebpackConfig({
-      resolve: {
-        alias: {
-          "@components": path.resolve(__dirname, "src/components"),
-          "@assets": path.resolve(__dirname, "src/assets"),
+  onCreateWebpackConfig({ actions, stage, loaders }) {
+    if (stage === "build-html" || stage === "develop-html") {
+      actions.setWebpackConfig({
+        module: {
+          rules: [
+            {
+              test: /scrollmagic/,
+              use: loaders.null(),
+            },
+            {
+              test: /gsap/,
+              use: loaders.null(),
+            },
+            {
+              test: /react-scrollmagic/,
+              use: loaders.null(),
+            },
+            {
+              test: /react-gsap/,
+              use: loaders.null(),
+            },
+            {
+              test: /tsparticles/,
+              use: loaders.null(),
+            },
+            {
+              test: /tsparticles-preset-fire/,
+              use: loaders.null(),
+            },
+            {
+              test: /tsparticles-preset-links/,
+              use: loaders.null(),
+            },
+            {
+              test: /tsparticles-preset-triangles/,
+              use: loaders.null(),
+            },
+            {
+              test: /tsparticles-preset-stars/,
+              use: loaders.null(),
+            },
+          ]
         },
-      },
-    })
+      })
+    }
   },
 }

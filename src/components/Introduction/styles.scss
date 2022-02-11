@@ -1,0 +1,8 @@
+button {
+  border: thin solid white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  &:hover {
+    background-color: grey;
+  }
+}

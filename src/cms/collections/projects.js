@@ -18,6 +18,8 @@ const projects = {
     heroImage,
     { name: "title", label: "Title" },
     { name: "body", label: "Body", widget: "markdown" },
+    { name: "technologies", label: "Technologies", widget: "list"},
+    { name: "languages", label: "Languages", widget: "list"}
   ],
 }
 

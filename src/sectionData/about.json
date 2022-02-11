@@ -1,10 +1,19 @@
 {
-  "title": "This",
-  "body": "Test",
+  "title": "Who Am I",
+  "body": "I'm a Front-End Developer for ChowNow in Los Angeles, CA. I have serious passion for UI effects, animations and creating intuitive, dynamic user experiences. Let's make something special.",
   "languages": [
-    "dcs"
+    "Javascript",
+    "Typescript",
+    "CSS/SCSS",
+    "Node"
   ],
   "technologies": [
-    "cds"
+    "React",
+    "NextJs",
+    "HTML",
+    "Tailwind",
+    "Bootstrap",
+    "Gatsby",
+    "Netlify"
   ]
 }

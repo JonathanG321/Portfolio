@@ -13,5 +13,13 @@
       "alt": "test"
     },
     "description": "dcsc"
-  }
+  },
+  "technologies": [
+    "hello",
+    "what"
+  ],
+  "languages": [
+    "hello",
+    "what"
+  ]
 }
