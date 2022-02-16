@@ -2,8 +2,8 @@ import * as React from "react"
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { ProjectQuery } from "../../gatsby-graphql"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from "../components/Layout"
+import Seo from "../components/Seo"
 
 type Props = PageProps<ProjectQuery>
 

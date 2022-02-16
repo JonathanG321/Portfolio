@@ -1,6 +1,8 @@
 import * as React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { MainPageQuery } from "../../../gatsby-graphql"
+import "./styles.scss"
+import { Link } from "gatsby"
 
 function ProjectCard({
   body,
@@ -17,10 +19,20 @@ function ProjectCard({
         alt={heroImage.alt}
         className="absolute top-0 border rounded w-full -z-1 h-full"
       />
-      <div className="p-7 absolute rounded transition-opacity duration-500 opacity-0 transform hover:opacity-80 border-4 border-opacity-100 border-blue-700 bg-white top-0 h-full w-full flex flex-col justify-center align-middle z-10">
-        <h1 className="text-xl">{title}</h1>
-        <h2 className="text-lg">{languages.join(" / ")}</h2>
-        <p>{body}</p>
+      <div className="p-7 interior absolute rounded border-4 border-blue-700 bg-white top-0 h-full w-full flex flex-col justify-center align-middle z-10">
+        <div className="left">
+          <h1 className="text-xl">{title}</h1>
+          <h2 className="text-lg">{languages.join(" / ")}</h2>
+        </div>
+        <div className="right">
+          <p>{body}</p>
+          <Link
+            to={`/${title}`}
+            className="button transition-colors duration-500"
+          >
+            <span>See More</span>
+          </Link>
+        </div>
       </div>
     </div>
   )

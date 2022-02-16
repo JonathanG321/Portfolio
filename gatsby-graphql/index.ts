@@ -799,6 +799,7 @@ export type SitePlugin = Node & {
 };
 
 export type SitePluginPluginOptions = {
+  postCssPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPostCssPlugins>>>;
   defaults?: Maybe<SitePluginPluginOptionsDefaults>;
   base64Width?: Maybe<Scalars['Int']>;
   stripMetadata?: Maybe<Scalars['Boolean']>;
@@ -830,13 +831,6 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
-  postCssPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPostCssPlugins>>>;
-};
-
-export type SitePluginPluginOptionsDefaults = {
-  formats?: Maybe<Array<Maybe<Scalars['String']>>>;
-  placeholder?: Maybe<Scalars['String']>;
-  breakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
 
 export type SitePluginPluginOptionsPostCssPlugins = {
@@ -1242,6 +1236,12 @@ export type SitePluginPluginOptionsPostCssPluginsVariants = {
 
 export type SitePluginPluginOptionsPostCssPluginsVariantsExtend = {
   padding?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type SitePluginPluginOptionsDefaults = {
+  formats?: Maybe<Array<Maybe<Scalars['String']>>>;
+  placeholder?: Maybe<Scalars['String']>;
+  breakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
 
 export type SitePluginPackageJson = {
@@ -3820,6 +3820,7 @@ export type SitePluginFilterInput = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
+  postCssPlugins?: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>;
   defaults?: Maybe<SitePluginPluginOptionsDefaultsFilterInput>;
   base64Width?: Maybe<IntQueryOperatorInput>;
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
@@ -3851,13 +3852,6 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
-  postCssPlugins?: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>;
-};
-
-export type SitePluginPluginOptionsDefaultsFilterInput = {
-  formats?: Maybe<StringQueryOperatorInput>;
-  placeholder?: Maybe<StringQueryOperatorInput>;
-  breakpoints?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsPostCssPluginsFilterListInput = {
@@ -4269,6 +4263,12 @@ export type SitePluginPluginOptionsPostCssPluginsVariantsExtendFilterInput = {
   padding?: Maybe<StringQueryOperatorInput>;
 };
 
+export type SitePluginPluginOptionsDefaultsFilterInput = {
+  formats?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+  breakpoints?: Maybe<IntQueryOperatorInput>;
+};
+
 export type SitePluginPackageJsonFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
@@ -4490,6 +4490,9 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___resolve'
   | 'pluginCreator___name'
   | 'pluginCreator___version'
+  | 'pluginCreator___pluginOptions___postCssPlugins'
+  | 'pluginCreator___pluginOptions___postCssPlugins___purge'
+  | 'pluginCreator___pluginOptions___postCssPlugins___darkMode'
   | 'pluginCreator___pluginOptions___defaults___formats'
   | 'pluginCreator___pluginOptions___defaults___placeholder'
   | 'pluginCreator___pluginOptions___defaults___breakpoints'
@@ -4523,9 +4526,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
-  | 'pluginCreator___pluginOptions___postCssPlugins'
-  | 'pluginCreator___pluginOptions___postCssPlugins___purge'
-  | 'pluginCreator___pluginOptions___postCssPlugins___darkMode'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -9947,6 +9947,9 @@ export type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
+  | 'pluginOptions___postCssPlugins'
+  | 'pluginOptions___postCssPlugins___purge'
+  | 'pluginOptions___postCssPlugins___darkMode'
   | 'pluginOptions___defaults___formats'
   | 'pluginOptions___defaults___placeholder'
   | 'pluginOptions___defaults___breakpoints'
@@ -9980,9 +9983,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
-  | 'pluginOptions___postCssPlugins'
-  | 'pluginOptions___postCssPlugins___purge'
-  | 'pluginOptions___postCssPlugins___darkMode'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'

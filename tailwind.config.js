@@ -74,20 +74,11 @@ module.exports = {
         ...spacing,
       },
       inset: {
-        "mobile-nav-height": "3.7rem",
         "1/5": "20%",
         "1/6": "16.67%",
       },
-      height: {
-        "desktop-nav": "5.6rem",
-        "mobile-nav": "3.7rem",
-        "mobile-nav-container": "calc(100vh - 3.7rem)",
-      },
       minHeight: {
         ...defaultTheme.height(item => defaultTheme[item]),
-      },
-      maxHeight: {
-        "home-hero-carousel": "calc(98vh - 5.6rem)",
       },
       padding: {
         2.67: "0.66rem",
@@ -109,50 +100,6 @@ module.exports = {
       lineHeight: {
         11: "2.75rem",
         "extra-tight": 0.85,
-      },
-      colors: {
-        citrine: {
-          background: {
-            overflow: "#fff2d1",
-            hero: "rgba(77, 77, 79, 0.25)",
-          },
-          primary: {
-            light: "#fbb717",
-            medium: "#EBA700",
-            dark: "#e89300",
-          },
-          gray: {
-            light: "#666766",
-            medium: "#4e4e50",
-            dark: "#4d4d4f",
-          },
-          black: "#231f20",
-          accent: "#f2f2f2",
-          "off-white": "#fef8e7",
-          blue: {
-            light: "#6eaedf",
-            dark: "#5692bf",
-          },
-          turquoise: {
-            light: "#40c1c5",
-            dark: "#36afb3",
-          },
-          orange: {
-            light: "#f68c60",
-            dark: "#df7143",
-          },
-          purple: {
-            light: "#ce71ad",
-            dark: "#a64b8a",
-          },
-        },
-      },
-      transitionProperty: {
-        left: "left",
-      },
-      boxShadow: {
-        body:
-          "0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2)",
       },
     },
   },

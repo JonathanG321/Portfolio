@@ -46,9 +46,9 @@ function getNetlifyCMSOptions() {
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Jonathan Gordon`,
+    description: `A portfolio website to display my skills and past projects`,
+    author: `Jonathan Gordon`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
